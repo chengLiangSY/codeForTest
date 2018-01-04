@@ -1,0 +1,28 @@
+option java_package="proto.test.example";
+option java_outer_classname="PBTestProtos";
+package proto.test;
+
+message PBTest{
+    required int32 id = 1;
+
+//    optional string query = 2;
+
+//枚举类型测试
+    enum Corpus{
+        UNIVERAL = 0;
+        WEB = 1;
+        IMAGES = 2;
+        LOCAL = 3;
+        NEWS = 4;
+        PRODUCTS = 5;
+        VIDEO = 6;
+    }
+
+    optional Corpus corpus = 4 [default = WEB];
+
+    repeated Result result = 5;
+
+    message Result{
+        required string url = 1;
+    }
+}
